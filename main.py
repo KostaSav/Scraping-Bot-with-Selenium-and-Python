@@ -17,7 +17,7 @@ def get_currencies(currencies, start, end, export_csv=False):
     for currency in currencies:
         while True:
             try:
-                #
+                # Open the URL and maximize the window
                 my_url = f"https://investing.com/currencies/usd-{currency.lower()}-historical-data"
                 option = Options()
                 option.add_experimental_option("excludeSwitches", ["enable-logging"])
