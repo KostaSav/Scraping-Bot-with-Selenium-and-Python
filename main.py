@@ -39,14 +39,7 @@ def get_currencies(currencies, start, end, export_csv=False):
 
                 # Click on the date button to change the range
                 date_button = WebDriverWait(driver, 20).until(
-                    EC.element_to_be_clickable(
-                        (
-                            By.ID,
-                            "flatDatePickerCanvasHol"
-                            # By.XPATH,
-                            # "/html/body/div[5]/section/div[8]/div[3]/div/div[2]/span",
-                        )
-                    )
+                    EC.element_to_be_clickable((By.ID, "flatDatePickerCanvasHol"))
                 )
                 date_button.click()
                 print("Clicked the date button.")
@@ -86,7 +79,6 @@ def get_currencies(currencies, start, end, export_csv=False):
                 dataframes = pd.read_html(driver.page_source)
                 # From the webpage source code we collected, keep only the table containing the historical data
                 for dataframe in dataframes:
-                    # print(dataframe.columns.tolist())
                     if dataframe.columns.tolist() == [
                         "Date",
                         "Price",
@@ -98,7 +90,6 @@ def get_currencies(currencies, start, end, export_csv=False):
                         frames.append(dataframe)
                         df = dataframe
                         break
-                # print(frames)
                 frames.append(df)
 
                 # Export to csv if asked by function argument

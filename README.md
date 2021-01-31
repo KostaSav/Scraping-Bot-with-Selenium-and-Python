@@ -27,5 +27,6 @@ pip install lxml
 
 ## TODO
 
+- Convert XPATH scraping to ID/CLASS/NAME, etc.
 - Return data for multiple currencies
 - Update function that receives an existing dataframe and returns historical data up to today
